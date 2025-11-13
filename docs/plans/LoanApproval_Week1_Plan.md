@@ -108,10 +108,10 @@ Prepare a production-ready baseline notebook for a 50-minute technical interview
 - **Markdown documentation:** Key observations about data quality and patterns
 
 #### Checkpoint
-- Dataset shape confirmed (~600 rows, 13 columns)
-- Target variable identified and distribution calculated
-- Missing values quantified
-- At least 2-3 visualizations created
+- [ ] Dataset shape confirmed (~600 rows, 13 columns)
+- [ ] Target variable identified and distribution calculated
+- [ ] Missing values quantified
+- [ ] At least 2-3 visualizations created
 
 ---
 
@@ -143,10 +143,10 @@ Prepare a production-ready baseline notebook for a 50-minute technical interview
 - **Markdown documentation:** Preprocessing decisions and rationale
 
 #### Checkpoint
-- Zero missing values in final dataset
-- All features numeric (ready for modeling)
-- Train/test split completed
-- Feature engineering documented
+- [ ] Zero missing values in final dataset
+- [ ] All features numeric (ready for modeling)
+- [ ] Train/test split completed
+- [ ] Feature engineering documented
 
 ---
 
@@ -188,10 +188,10 @@ Prepare a production-ready baseline notebook for a 50-minute technical interview
 - **Note for interview:** Areas for hyperparameter tuning identified
 
 #### Checkpoint
-- âś" All 3 models trained successfully
-- âś" Metrics calculated for all models
-- âś" Comparison table created
-- âś" Best model identified with justification
+- [ ] All 3 models trained successfully
+- [ ] Metrics calculated for all models
+- [ ] Comparison table created
+- [ ] Best model identified with justification
 
 ---
 
@@ -224,10 +224,10 @@ Prepare a production-ready baseline notebook for a 50-minute technical interview
 - Notebook ready for presentation
 
 #### Checkpoint
-- âś" All sections have descriptive markdown headers
-- âś" Summary section created
-- âś" Next steps documented
-- âś" Notebook reviewed for clarity
+- [ ] All sections have descriptive markdown headers
+- [ ] Summary section created
+- [ ] Next steps documented
+- [ ] Notebook reviewed for clarity
 
 ---
 
