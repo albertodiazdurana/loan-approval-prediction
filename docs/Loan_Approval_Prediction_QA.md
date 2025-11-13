@@ -2120,5 +2120,3 @@ You've built a thorough, well-documented analysis demonstrating:
 - Critical thinking (SMOTE didn't help, analyzed why)
 - Business acumen (ROI, cost-benefit, risk management)
 - Production awareness (monitoring, deployment, maintenance)
-
-**You're ready for the interview! Good luck!**
