@@ -218,7 +218,7 @@ MIT License - See [LICENSE](LICENSE) for details
 ## Author
 
 **Alberto Diaz Durana**  
-[GitHub](https://github.com/albertodiazdurana) | [LinkedIn](https://linkedin.com/in/yourprofile)
+[GitHub](https://github.com/albertodiazdurana) | [LinkedIn](https://www.linkedin.com/in/albertodiazdurana/)
 
 ---
 
