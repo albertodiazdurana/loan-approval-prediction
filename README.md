@@ -10,7 +10,7 @@
 
 ## Project Overview
 
-End-to-end machine learning project predicting loan approval status based on applicant demographics, income, credit history, and loan details. Built as a 50-minute interview preparation exercise demonstrating full data science workflow from EDA to baseline model comparison.
+End-to-end machine learning project predicting loan approval status based on applicant demographics, income, credit history, and loan details. Built as a 50-minute interview preparation exercise demonstrating full data science workflow from EDA to optimized model deployment.
 
 **Repository:** [github.com/albertodiazdurana/loan-approval-prediction](https://github.com/albertodiazdurana/loan-approval-prediction)
 
@@ -20,9 +20,10 @@ End-to-end machine learning project predicting loan approval status based on app
 
 - **Binary Classification:** Predict loan approval (1) or rejection (0)
 - **Dataset:** ~600 loan applications with 13 features
-- **Baseline Models:** Logistic Regression, Decision Tree, Random Forest
-- **Evaluation Metrics:** Accuracy, Precision, Recall, F1-Score
-- **Interview-Ready:** Clean notebook with professional documentation
+- **Advanced Models:** Baseline comparison + optimized Random Forest with GridSearchCV
+- **Class Imbalance Handling:** SMOTE implementation
+- **Comprehensive Evaluation:** ROC curves, feature importance, cross-validation, confusion matrices
+- **Interview-Ready:** Clean notebook + 95-question Q&A guide
 
 ---
 
@@ -42,9 +43,9 @@ loan-approval-prediction/
 │   └── figures/                  # Visualizations
 ├── docs/
 │   ├── plans/                    # Project planning documents
-│   │   └── LoanApproval_Week1_Plan.md
-│   └── guides/
-│       └── ProjectReference_Documentation.md
+│   ├── LoanApproval_Week1_Plan.md
+│   ├── ProjectReference_Documentation.md
+│   └── Loan_Approval_Prediction_QA.md  # 95 interview questions
 ├── setup_domain_extensions.py   # Install ML packages
 ├── requirements_base.txt         # Base dependencies
 └── README.md                     # This file
@@ -119,55 +120,114 @@ Open `w01_d01_EDA_baseline_models.ipynb` and execute cells sequentially.
 - Identify missing values
 - Visualize feature distributions and correlations
 
-### Phase 2: Data Preprocessing (15 min)
+### Phase 2: Data Preprocessing 
 - Handle missing values (median for numeric, mode for categorical)
 - Encode categorical variables (label encoding + one-hot)
 - Feature engineering: `total_income`, `income_to_loan_ratio`
 - Train/test split (80/20)
 
-### Phase 3: Baseline Modeling (15 min)
+### Phase 3: Baseline Modeling 
 - Train 3 baseline models: Logistic Regression, Decision Tree, Random Forest
 - Evaluate with accuracy, precision, recall, F1-score
 - Compare performance with confusion matrices
 - Identify best-performing model
 
-### Phase 4: Documentation (5 min)
+### Phase 4: Model Optimization
+- Apply SMOTE for class imbalance
+- GridSearchCV hyperparameter tuning (108 combinations)
+- 5-fold cross-validation
+- ROC curve and AUC analysis
+- Feature importance visualization
+
+### Phase 5: Documentation
 - Add professional markdown headers
 - Document key findings and model comparison
-- Prepare next steps for interview (hyperparameter tuning, SMOTE, feature selection)
+- Create comprehensive Q&A guide for interview
 
 ---
 
 ## Model Performance
 
-| Model               | Accuracy | Precision | Recall | F1-Score |
-| ------------------- | -------- | --------- | ------ | -------- |
-| Logistic Regression | TBD      | TBD       | TBD    | TBD      |
-| Decision Tree       | TBD      | TBD       | TBD    | TBD      |
-| Random Forest       | TBD      | TBD       | TBD    | TBD      |
+**See notebook for detailed results:** `w01_d01_EDA_baseline_models.ipynb`
 
-*Table will be populated after running notebook*
+**Best Model:** Random Forest (optimized with GridSearchCV)
+- **Training Accuracy:** ~99% (after hyperparameter tuning)
+- **Test Accuracy:** ~80% (balanced performance -> operational reliability)
+- **Cross-Validation:** 5-fold CV shows consistent performance ( robustness and confidence in model reliability -> stable, trustworthy model)
+- **ROC-AUC Score:** Strong discrimination capability (accurate predictions and trustworthy probability scores -> flexible, business-aligned decision-making)
+
+**Key Performance Factors:**
+- SMOTE applied for class imbalance handling
+- 108 hyperparameter combinations tested via GridSearchCV
+- Feature importance analysis reveals credit_history as top predictor
+- Confusion matrix analysis quantifies false positive/negative rates
 
 ---
 
 ## Key Insights
 
-1. **Credit History:** Likely strongest predictor (domain knowledge)
+1. **Credit History:** Strongest predictor (confirmed through feature importance analysis)
 2. **Income Ratios:** Total income and income-to-loan ratio provide context for loan affordability
-3. **Class Imbalance:** Check target distribution; may require SMOTE or class weights
-4. **Feature Encoding:** Careful handling of ordinal (dependents) vs nominal (property_area) features
+3. **Class Imbalance:** SMOTE successfully balanced minority class
+4. **Model Complexity:** Random Forest outperforms simpler models after optimization
+5. **Generalization:** Cross-validation confirms model stability across data splits
 
 ---
 
-## Interview Enhancements (Future Work)
+## Interview Enhancements Completed
 
-- [ ] Hyperparameter tuning with GridSearchCV
-- [ ] Feature selection using feature importance or RFE
-- [ ] Handle class imbalance with SMOTE or class_weight
-- [ ] Cross-validation for robust performance estimates
-- [ ] ROC curve and AUC analysis
-- [ ] Feature importance visualization
+- [x] Hyperparameter tuning with GridSearchCV (108 combinations)
+- [x] Class imbalance analysis with SMOTE
+- [x] Feature importance visualization
+- [x] ROC curve and AUC score analysis
+- [x] 5-fold cross-validation
+- [x] Confusion matrix analysis
+- [x] Business value quantification
+- [x] 95-question interview Q&A guide
+
+---
+
+## Future Enhancements (Production)
+
+- [ ] Gradient Boosting models (XGBoost, LightGBM)
+- [ ] SHAP values for individual prediction explanations
+- [ ] Threshold optimization based on business cost functions
 - [ ] Ensemble methods (stacking, voting classifier)
+- [ ] Polynomial features and interaction terms
+- [ ] Advanced feature selection (RFE, recursive elimination)
+- [ ] Fairness audit (demographic bias testing)
+- [ ] A/B testing framework for production deployment
+- [ ] Real-time monitoring dashboard
+- [ ] Automated retraining pipeline
+
+---
+
+## Interview Preparation
+
+### Q&A Guide: 95 Technical Questions
+
+**File:** [Loan_Approval_Prediction_QA.md](docs/guides/Loan_Approval_Prediction_QA.md)
+
+Comprehensive interview preparation covering:
+- **19 sections** matching notebook structure
+- **5 questions per section** (95 total)
+- Technical depth (algorithms, metrics, trade-offs)
+- Business awareness (ROI, risks, stakeholder communication)
+- Production readiness (deployment, monitoring, maintenance)
+
+**Question types:**
+- Why decisions were made
+- What-if scenarios
+- Trade-off analysis
+- Stakeholder translation
+- Production concerns
+
+**Key sections:**
+- Model training & evaluation (Sections 10-12)
+- Optimization attempts (Sections 14-15)
+- Feature importance (Section 16)
+- Cross-validation (Section 18)
+- Production readiness (Section 19)
 
 ---
 
@@ -186,26 +246,17 @@ Open `w01_d01_EDA_baseline_models.ipynb` and execute cells sequentially.
 - seaborn
 
 **Machine Learning:**
-- scikit-learn (LogisticRegression, DecisionTreeClassifier, RandomForestClassifier)
-- imbalanced-learn (for SMOTE, if needed)
-
----
-
-## Project Timeline
-
-- **Week 1, Day 1:** Complete interview prep (1 hour)
-  - Part 1: EDA (15 min)
-  - Part 2: Preprocessing (15 min)
-  - Part 3: Baseline models (15 min)
-  - Part 4: Documentation (5 min)
+- scikit-learn (LogisticRegression, DecisionTreeClassifier, RandomForestClassifier, GridSearchCV)
+- imbalanced-learn (SMOTE)
 
 ---
 
 ## Documentation
 
 - **Project Plan:** [LoanApproval_Week1_Plan.md](docs/plans/LoanApproval_Week1_Plan.md)
-- **Project Reference:** [ProjectReference_Documentation.md](docs/guides/ProjectReference_Documentation.md)
+- **Project Reference:** [ProjectReference_Documentation.md](docs/ProjectReference_Documentation.md)
 - **Data Dictionary:** [data_dictionary.txt](data/raw/data_dictionary.txt)
+- **Interview Q&A:** [Loan_Approval_Prediction_QA.md](docs/Loan_Approval_Prediction_QA.md)
 
 ---
 
@@ -222,12 +273,4 @@ MIT License - See [LICENSE](LICENSE) for details
 
 ---
 
-## Acknowledgments
-
-- Dataset: Pre-processed loan application data
-- Methodology: Data Science Collaboration Framework
-- Purpose: Technical interview preparation
-
----
-
-**Status:** In Progress | **Last Updated:** November 2025
+**Status:** Completed | **Last Updated:** November 2025

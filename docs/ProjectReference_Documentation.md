@@ -1,5 +1,5 @@
 loan-approval-prediction
-Help me prepare for a mock interview for my specialization studies in data science. For this interview, I will be working with provided dataset. 
+Prepare for a mock interview for my specialization studies in data science. I will be working with provided dataset. 
 
 - Interview Objective: Create a model to analyze loans. 
 
