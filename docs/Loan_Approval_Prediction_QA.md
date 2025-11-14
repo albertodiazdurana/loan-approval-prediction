@@ -39,7 +39,7 @@
 
 ### Q2: Why did you suppress warnings in the setup?
 
-**Answer:** I used `warnings.filterwarnings('ignore')` to reduce console clutter during development and presentation. However, this should be used cautiously in production - warnings often indicate real issues like deprecated functions or data type mismatches. For a production system, I would only suppress specific, known warnings and log them appropriately rather than blanket suppression.
+**Answer:** I used `warnings.filterwarnings('ignore')` to reduce console clutter during development and presentation. However, this should be used cautiously in production - warnings often indicate real issues like deprecated functions or data type mismatches. For a production system, I would only suppress specific, known warnings and log them appropriately rather than overall suppression.
 
 ### Q3: What's the purpose of setting `pd.set_option('display.max_columns', None)`?
 
@@ -73,7 +73,7 @@ The current approach works well for our 563-row dataset but wouldn't scale.
 
 ### Q3: Why display both `.head()` and `.info()` immediately after loading?
 
-**Answer:** These provide complementary views: `.head()` shows actual data values helping identify format issues, outliers, or unexpected patterns quickly. `.info()` reveals structure - data types, null counts, and memory usage. Together, they catch common issues like dates stored as strings, unexpected nulls, or incorrect dtypes. This two-pronged validation is faster than scrolling through raw CSV files and catches issues before processing begins.
+**Answer:** These provide complementary views: `.head()` shows actual data values helping identify format issues, outliers, or unexpected patterns quickly. `.info()` reveals structure - data types, non-null counts, and memory usage. Together, they catch common issues like dates stored as strings, unexpected nulls, or incorrect dtypes. This validation is faster than scrolling through raw CSV files and catches issues before processing begins.
 
 ### Q4: What does the "RangeIndex: 563 entries" tell you about the data?
 
