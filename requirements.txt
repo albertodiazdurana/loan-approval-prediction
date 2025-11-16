@@ -3,3 +3,4 @@
 imbalanced-learn
 scikit-learn
 seaborn
+shap
