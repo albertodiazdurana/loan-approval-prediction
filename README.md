@@ -22,8 +22,9 @@ End-to-end machine learning project predicting loan approval status based on app
 - **Dataset:** ~600 loan applications with 13 features
 - **Advanced Models:** Baseline comparison + optimized Random Forest with GridSearchCV
 - **Class Imbalance Handling:** SMOTE implementation
+- **Model Interpretability:** SHAP analysis for global and individual prediction explanations
 - **Comprehensive Evaluation:** ROC curves, feature importance, cross-validation, confusion matrices
-- **Interview-Ready:** Clean notebook + 95-question Q&A guide
+- **Interview-Ready:** Clean notebook + 100-question Q&A guide
 
 ---
 
@@ -43,9 +44,10 @@ loan-approval-prediction/
 │   └── figures/                  # Visualizations
 ├── docs/
 │   ├── plans/                    # Project planning documents
-│   ├── LoanApproval_Week1_Plan.md
-│   ├── ProjectReference_Documentation.md
-│   └── Loan_Approval_Prediction_QA.md  # 95 interview questions
+│   │   └── LoanApproval_Week1_Plan.md
+│   └── guides/
+│       ├── ProjectReference_Documentation.md
+│       └── Loan_Approval_Prediction_QA.md  # interview questions
 ├── setup_domain_extensions.py   # Install ML packages
 ├── requirements_base.txt         # Base dependencies
 └── README.md                     # This file
@@ -152,9 +154,9 @@ Open `w01_d01_EDA_baseline_models.ipynb` and execute cells sequentially.
 
 **Best Model:** Random Forest (optimized with GridSearchCV)
 - **Training Accuracy:** ~99% (after hyperparameter tuning)
-- **Test Accuracy:** ~80% (balanced performance -> operational reliability)
-- **Cross-Validation:** 5-fold CV shows consistent performance ( robustness and confidence in model reliability -> stable, trustworthy model)
-- **ROC-AUC Score:** Strong discrimination capability (accurate predictions and trustworthy probability scores -> flexible, business-aligned decision-making)
+- **Test Accuracy:** ~80% (balanced performance)
+- **Cross-Validation:** 5-fold CV shows consistent performance
+- **ROC-AUC Score:** Strong discrimination capability
 
 **Key Performance Factors:**
 - SMOTE applied for class imbalance handling
@@ -166,11 +168,32 @@ Open `w01_d01_EDA_baseline_models.ipynb` and execute cells sequentially.
 
 ## Key Insights
 
-1. **Credit History:** Strongest predictor (confirmed through feature importance analysis)
-2. **Income Ratios:** Total income and income-to-loan ratio provide context for loan affordability
-3. **Class Imbalance:** SMOTE successfully balanced minority class
-4. **Model Complexity:** Random Forest outperforms simpler models after optimization
-5. **Generalization:** Cross-validation confirms model stability across data splits
+1. **Credit History:** Strongest predictor (confirmed through feature importance and SHAP analysis - 0.1109 mean |SHAP|)
+2. **Engineered Features:** income_to_loan_ratio ranks 2nd in SHAP importance (0.0382), validating feature engineering
+3. **Income Ratios:** Total income and income-to-loan ratio provide context for loan affordability
+4. **Class Imbalance:** SMOTE tested but decreased performance; original distribution optimal
+5. **Model Complexity:** Random Forest outperforms simpler models after optimization
+6. **Generalization:** Cross-validation confirms model stability across data splits
+7. **Interpretability:** SHAP analysis provides transparent explanations for individual predictions
+
+---
+
+## Business Value
+
+### ROI Analysis
+- **Cost of False Negative:** Missed revenue opportunity (declined viable applicant)
+- **Cost of False Positive:** Default risk (approved risky applicant)
+- **Model Impact:** Optimized threshold based on business cost function
+
+### Stakeholder Communication
+- **Loan Officers:** Automated pre-screening reduces manual review time
+- **Risk Management:** Quantified default probability for portfolio management
+- **Executives:** Clear metrics on approval accuracy and revenue impact
+
+### Production Considerations
+- **Model Interpretability:** Feature importance enables transparent decisions
+- **Bias Audit:** Gender/demographic fairness analysis required before deployment
+- **Regulatory Compliance:** Document decision criteria for loan approval
 
 ---
 
@@ -182,6 +205,7 @@ Open `w01_d01_EDA_baseline_models.ipynb` and execute cells sequentially.
 - [x] ROC curve and AUC score analysis
 - [x] 5-fold cross-validation
 - [x] Confusion matrix analysis
+- [x] SHAP analysis for model interpretability
 - [x] Business value quantification
 - [x] 95-question interview Q&A guide
 
@@ -190,7 +214,6 @@ Open `w01_d01_EDA_baseline_models.ipynb` and execute cells sequentially.
 ## Future Enhancements (Production)
 
 - [ ] Gradient Boosting models (XGBoost, LightGBM)
-- [ ] SHAP values for individual prediction explanations
 - [ ] Threshold optimization based on business cost functions
 - [ ] Ensemble methods (stacking, voting classifier)
 - [ ] Polynomial features and interaction terms
@@ -204,13 +227,13 @@ Open `w01_d01_EDA_baseline_models.ipynb` and execute cells sequentially.
 
 ## Interview Preparation
 
-### Q&A Guide: 95 Technical Questions
+### Q&A Guide: 100 Technical Questions
 
 **File:** [Loan_Approval_Prediction_QA.md](docs/guides/Loan_Approval_Prediction_QA.md)
 
 Comprehensive interview preparation covering:
-- **19 sections** matching notebook structure
-- **5 questions per section** (95 total)
+- **20 sections** matching notebook structure
+- **5 questions per section** (100 total)
 - Technical depth (algorithms, metrics, trade-offs)
 - Business awareness (ROI, risks, stakeholder communication)
 - Production readiness (deployment, monitoring, maintenance)
@@ -226,6 +249,7 @@ Comprehensive interview preparation covering:
 - Model training & evaluation (Sections 10-12)
 - Optimization attempts (Sections 14-15)
 - Feature importance (Section 16)
+- SHAP interpretability (Section 20)
 - Cross-validation (Section 18)
 - Production readiness (Section 19)
 
@@ -248,6 +272,7 @@ Comprehensive interview preparation covering:
 **Machine Learning:**
 - scikit-learn (LogisticRegression, DecisionTreeClassifier, RandomForestClassifier, GridSearchCV)
 - imbalanced-learn (SMOTE)
+- shap (model interpretability)
 
 ---
 
@@ -270,7 +295,6 @@ MIT License - See [LICENSE](LICENSE) for details
 
 **Alberto Diaz Durana**  
 [GitHub](https://github.com/albertodiazdurana) | [LinkedIn](https://www.linkedin.com/in/albertodiazdurana/)
-
 ---
 
 **Status:** Completed | **Last Updated:** November 2025
